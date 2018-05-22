@@ -1,7 +1,25 @@
 <template>
- <div>电影</div>
+  <div>电影
+    <a href="/pages/index/main">{{ test }}</a>
+  </div>
+
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      test: '测试'
+    }
+  },
+  computed: {
+    movie() {
+      console.log(this)
+      return this.$store.state.movie.list
+    }
+  },
+  async created() {
+    this.$store.dispatch('getMovies')
+  }
+}
 </script>
