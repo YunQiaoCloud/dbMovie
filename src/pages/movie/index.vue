@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     movie() {
-      console.log(this)
+      console.log(this.$store.state.movie.list, '电影列表')
       return this.$store.state.movie.list
     }
   },
