@@ -8,10 +8,14 @@ export function post(url, body = {}) {
       method: 'POST',
       header: { 'content-type': 'json' },
       success(res) {
-        resolve(res.data)  // 把返回的数据传出去
+        if (res.statusCode < 200 || res.statusCode > 300) {
+          reject(res.data || {})
+        }
+
+        resolve(res.data)
       },
       fail(error) {
-        reject(error)   // 把错误信息传出去
+        reject(error)
       }
     })
   })

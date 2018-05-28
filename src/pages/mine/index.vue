@@ -1,7 +1,10 @@
 <template>
- <div>我的</div>
+  <div>
+    <a href="/pages/movie/main">ada</a>
+    <a href="/pages/search/main">ada123</a>
+  </div>
 </template>
 
 <script>
-export default {}
+  export default {}
 </script>

@@ -13,7 +13,6 @@ const mutations = {
 const actions = {
   async getMovies({ commit }) {
     const res = await post('in_theaters')
-    console.log(res.subjects)
     const movieList = res.subjects
     commit('setMovies', movieList)
   }

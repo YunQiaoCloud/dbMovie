@@ -1,6 +1,28 @@
 <template>
-  <div>电影
-    <a href="/pages/index/main">{{ test }}</a>
+  <div class="movie-homepage">
+    <div class="movie-search">
+      <a href="/pages/search/main">
+        <input type="text" placeholder="搜索">
+      </a>
+    </div>
+
+    <div class="recent-movie">
+      <div class="movie-module">
+        <h3>近期上映</h3>
+        <span>更多></span>
+      </div>
+
+      <div class="" v-for="movie in movies">
+        <div class="movie-poster">
+          <a href="#">
+            <!-- <div class="" v-bind:style="{ background-image: url({ movie.images.small }) } ">
+
+          </div> -->
+        </a>
+      </div>
+    </div>
+  </div>
+
   </div>
 
 </template>
