@@ -12,13 +12,18 @@
         <span>更多></span>
       </div>
 
-      <div class="" v-for="movie in movies">
+      <div class="movie-list" v-for="movie in movies" :key="movie.id">
         <div class="movie-poster">
           <a href="#">
-            <!-- <div class="" v-bind:style="{ background-image: url({ movie.images.small }) } ">
-
-          </div> -->
-        </a>
+            <img class="poster" :src="movie.images.small">
+          </a>
+        </div>
+        <div class="movie-name">
+          <h4>{{ movie.title }}</h4>
+        </div>
+        <div class="">
+          <i>{{ movie.rating.average }}</i>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +40,7 @@ export default {
     }
   },
   computed: {
-    movie() {
+    movies() {
       console.log(this.$store.state.movie.list, '电影列表')
       return this.$store.state.movie.list
     }
@@ -45,3 +50,34 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .recent-movie {
+    padding-left: 20px;
+  }
+
+  .movie-list {
+    width: 30vw;
+    height: 200px;
+    margin-right: 10px;
+    float: left;
+  }
+
+  .movie-poster {
+    width: 100%;
+    height: 150px;
+
+    a {
+      width: 100%;
+      height: 100%;
+    }
+
+    .poster {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center 15%;
+      background-size: cover;
+    }
+  }
+</style>
