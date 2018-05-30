@@ -30,4 +30,9 @@ export default {
   -webkit-transition: width 2s;
   -o-transition: width 2s;
 }
+
+body {
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  font-size: 12px;
+}
 </style>

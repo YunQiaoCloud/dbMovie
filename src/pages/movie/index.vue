@@ -5,24 +5,95 @@
         <input type="text" placeholder="搜索">
       </a>
     </div>
+    <!-- 正在上映 -->
+    <div class="movie-class-name">
+      <h3>正在上映</h3>
+      <span>更多 ></span>
+    </div>
 
-    <div class="recent-movie">
-      <div class="movie-module">
-        <h3>近期上映</h3>
-        <span>更多></span>
+    <div class="movie-class">
+      <div class="list-box">
+        <div class="movie-list" v-for="recentMovie in recentMovies" :key="recentMovie.id">
+          <div class="movie-poster">
+            <a href="#">
+              <img class="poster" :src="recentMovie.images.small">
+            </a>
+          </div>
+          <div class="movie-name">
+            <h4>{{ recentMovie.title }}</h4>
+          </div>
+          <div class="movie-mark">
+            <i>{{ recentMovie.rating.average }}</i>
+          </div>
+        </div>
       </div>
+    </div>
+    <!-- 即将上映 -->
+    <div class="movie-class-name">
+      <h3>即将上映</h3>
+      <span>更多 ></span>
+    </div>
 
-      <div class="movie-list" v-for="movie in movies" :key="movie.id">
-        <div class="movie-poster">
-          <a href="#">
-            <img class="poster" :src="movie.images.small">
-          </a>
+    <div class="movie-class">
+      <div class="list-box">
+        <div class="movie-list" v-for="comingMovie in comingMovies" :key="comingMovie.id">
+          <div class="movie-poster">
+            <a href="#">
+              <img class="poster" :src="comingMovie.images.small">
+            </a>
+          </div>
+          <div class="movie-name">
+            <h4>{{ comingMovie.title }}</h4>
+          </div>
+          <div class="movie-mark">
+            <i>{{ comingMovie.rating.average }}</i>
+          </div>
         </div>
-        <div class="movie-name">
-          <h4>{{ movie.title }}</h4>
+      </div>
+    </div>
+    <!-- Top250 -->
+    <div class="movie-class-name">
+      <h3>Top250</h3>
+      <span>更多 ></span>
+    </div>
+
+    <div class="movie-class">
+      <div class="list-box">
+        <div class="movie-list" v-for="top250Movie in top250Movies" :key="top250Movie.id">
+          <div class="movie-poster">
+            <a href="#">
+              <img class="poster" :src="top250Movie.images.small">
+            </a>
+          </div>
+          <div class="movie-name">
+            <h4>{{ top250Movie.title }}</h4>
+          </div>
+          <div class="movie-mark">
+            <i>{{ top250Movie.rating.average }}</i>
+          </div>
         </div>
-        <div class="">
-          <i>{{ movie.rating.average }}</i>
+      </div>
+    </div>
+    <!-- 口碑榜 -->
+    <div class="movie-class-name">
+      <h3>口碑榜</h3>
+      <span>更多 ></span>
+    </div>
+
+    <div class="movie-class">
+      <div class="list-box">
+        <div class="movie-list" v-for="USMovie in USMovies" :key="USMovie.id">
+          <div class="movie-poster">
+            <a href="#">
+              <img class="poster" :src="USMovie.images.small">
+            </a>
+          </div>
+          <div class="movie-name">
+            <h4>{{ USMovie.title }}</h4>
+          </div>
+          <div class="movie-mark">
+            <i>{{ USMovie.rating.average }}</i>
+          </div>
         </div>
       </div>
     </div>
@@ -36,24 +107,76 @@
 export default {
   data() {
     return {
-      test: '测试'
     }
   },
   computed: {
-    movies() {
-      console.log(this.$store.state.movie.list, '电影列表')
-      return this.$store.state.movie.list
+    recentMovies() {
+      return this.$store.state.movie.recentMovielist
+    },
+    comingMovies() {
+      console.log(this.$store.state.movie.comingMovielist)
+      return this.$store.state.movie.comingMovielist
+    },
+    top250Movies() {
+      console.log(this.$store.state.movie.top250Movielist)
+      return this.$store.state.movie.top250Movielist
+    },
+    USMovies() {
+      console.log(this.$store.state.movie.USMovielist)
+      return this.$store.state.movie.USMovielist
     }
   },
   async created() {
-    this.$store.dispatch('getMovies')
+    this.$store.dispatch('getRecentMovies')
+    this.$store.dispatch('getComingMovies')
+    this.$store.dispatch('getTop250Movies')
+    this.$store.dispatch('getUSMovies')
   }
 }
 </script>
 
 <style lang="scss">
-  .recent-movie {
-    padding-left: 20px;
+  .movie-search {
+    padding: 10px;
+    background-color: #44bb57;
+
+    input {
+      width: 100%;
+      height: 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+  }
+
+  .movie-class-name {
+    overflow: hidden;
+    border-left: 5px solid #44bb57;
+    padding-left: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+
+    h3 {
+      font-weight: bold;
+      float: left;
+    }
+
+    span {
+      float: right;
+      color: #44bb57;
+      margin-right: 15px;
+    }
+  }
+
+  .movie-class {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+
+    .list-box {
+      width: 20000px;
+    }
   }
 
   .movie-list {
@@ -75,9 +198,22 @@ export default {
     .poster {
       width: 100%;
       height: 100%;
-      background-repeat: no-repeat;
-      background-position: center 15%;
-      background-size: cover;
     }
+  }
+
+  .movie-name {
+
+    h4 {
+      font-size: 14px;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .movie-mark {
+    color: red;
+    font-style: oblique;
   }
 </style>
