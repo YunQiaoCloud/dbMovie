@@ -46,7 +46,7 @@
             <h4>{{ comingMovie.title }}</h4>
           </div>
           <div class="movie-mark">
-            <i>{{ comingMovie.rating.average }}</i>
+            <i>{{ comingMovie.year }}</i>
           </div>
         </div>
       </div>
@@ -74,9 +74,9 @@
         </div>
       </div>
     </div>
-    <!-- 口碑榜 -->
+    <!-- 北美票房榜 -->
     <div class="movie-class-name">
-      <h3>口碑榜</h3>
+      <h3>北美票房榜</h3>
       <span>更多 ></span>
     </div>
 
@@ -99,8 +99,6 @@
     </div>
   </div>
 
-  </div>
-
 </template>
 
 <script>
@@ -111,19 +109,16 @@ export default {
   },
   computed: {
     recentMovies() {
-      return this.$store.state.movie.recentMovielist
+      return this.$store.getters.recentMovies
     },
     comingMovies() {
-      console.log(this.$store.state.movie.comingMovielist)
-      return this.$store.state.movie.comingMovielist
+      return this.$store.getters.comingMovies
     },
     top250Movies() {
-      console.log(this.$store.state.movie.top250Movielist)
-      return this.$store.state.movie.top250Movielist
+      return this.$store.getters.top250Movies
     },
     USMovies() {
-      console.log(this.$store.state.movie.USMovielist)
-      return this.$store.state.movie.USMovielist
+      return this.$store.getters.USMovies
     }
   },
   async created() {
@@ -136,6 +131,11 @@ export default {
 </script>
 
 <style lang="scss">
+  .movie-homepage {
+    width: 100%;
+    height: auto;
+  }
+
   .movie-search {
     padding: 10px;
     background-color: #44bb57;
@@ -175,14 +175,14 @@ export default {
     overflow-x: auto;
 
     .list-box {
-      width: 20000px;
+      width: 800vw;
     }
   }
 
   .movie-list {
     width: 30vw;
     height: 200px;
-    margin-right: 10px;
+    margin: 0 5px;
     float: left;
   }
 
