@@ -12,6 +12,8 @@ export default {
 </script>
 
 <style>
+@import "../static/css/normalize.css";
+
 .container {
   height: 100%;
   display: flex;
@@ -27,5 +29,10 @@ export default {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+
+body {
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  font-size: 12px;
 }
 </style>
