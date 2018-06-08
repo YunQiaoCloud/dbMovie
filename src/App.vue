@@ -12,8 +12,6 @@ export default {
 </script>
 
 <style>
-@import "../static/css/normalize.css";
-
 .container {
   height: 100%;
   display: flex;
