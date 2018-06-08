@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store/index'
+import _ from 'lodash'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
 
 Vue.prototype.$store = store
+Vue.prototype.$_ = _
 
 const app = new Vue(App)
 app.$mount()
