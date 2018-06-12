@@ -15,7 +15,7 @@
       <div class="list-box">
         <div class="movie-list" v-for="recentMovie in recentMovies" :key="recentMovie.id">
           <div class="movie-poster">
-            <a href="#">
+            <a :href="'/pages/details/main/' + recentMovie.id">
               <img class="poster" :src="recentMovie.images.small">
             </a>
           </div>
@@ -190,7 +190,7 @@ export default {
     width: 100%;
     height: 150px;
 
-    a {
+    navigator {
       width: 100%;
       height: 100%;
     }

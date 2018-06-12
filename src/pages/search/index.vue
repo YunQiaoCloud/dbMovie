@@ -29,14 +29,12 @@ export default {
   },
   computed: {
     searchResult() {
-      console.log(this.$store.state.search.searchResult, 'asd')
       return this.$store.state.search.searchResult
     }
   },
   watch: {
     searchValue: _.debounce(function movieSearch(value) {
-      console.log(value)
-
+      if (!value) { return }
       this.$store.dispatch('getSearchMovie', value)
     }, 1000)
   }
