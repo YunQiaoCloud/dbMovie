@@ -46,6 +46,7 @@ export default {
   },
   watch: {
     searchValue: _.debounce(function movieSearch(value) {
+      if (!value) { return }
       this.$store.dispatch('getSearchMovie', value)
     }, 1000)
   }
