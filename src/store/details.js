@@ -1,18 +1,22 @@
 import { post } from '../utils/requestMethod.js'
 
 const state = {
-  currentMovie: []
+  currentMovie: {
+    images: {
+      small: ''
+    }
+  }
 }
 
 const mutations = {
   setCurrentMovie(state, currentMovie) {
-    state.currentMovie = currentMovie.subjects
+    state.currentMovie = currentMovie
   }
 }
 
 const actions = {
   async getCurrentMovie({ commit }, movieId) {
-    const res = await post(`subject/${movieId}&count=50`)
+    const res = await post(`subject/${movieId}`)
     commit('setCurrentMovie', res)
   }
 }
