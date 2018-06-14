@@ -8,6 +8,12 @@ const state = {
   }
 }
 
+const getters = {
+  currentMovie(state) {
+    return state.currentMovie
+  }
+}
+
 const mutations = {
   setCurrentMovie(state, currentMovie) {
     state.currentMovie = currentMovie
@@ -23,6 +29,7 @@ const actions = {
 
 export default {
   state,
+  getters,
   mutations,
   actions
 }

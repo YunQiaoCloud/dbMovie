@@ -2,14 +2,12 @@
   <div class="movie-details">
     <div class="">
       <p>{{ movieDetails.title }}</p>
-      <img :src="$_.get(movieDetails.images, 'small')">
-      <!-- <img :src="movieDetails.images.small"> -->
+      <img :src="movieDetails.images.small">
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -20,9 +18,9 @@ export default {
   },
   computed: {
     movieDetails() {
-      console.log(this.$store.state.details.currentMovie)
-      console.log(this.$store.state.details.currentMovie.images)
-      return this.$store.state.details.currentMovie
+      console.log(this.$store.getters.currentMovie)
+      console.log(this.$store.getters.currentMovie.images.small)
+      return this.$store.getters.currentMovie
     }
   },
   async mounted() {
