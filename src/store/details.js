@@ -4,6 +4,9 @@ const state = {
   currentMovie: {
     images: {
       small: ''
+    },
+    rating: {
+      average: ''
     }
   }
 }
