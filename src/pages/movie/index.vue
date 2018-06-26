@@ -2,7 +2,7 @@
   <div class="movie-homepage">
     <div class="movie-search">
       <a href="/pages/search/main">
-        <input type="text" placeholder="搜索">
+        <input type="text" placeholder="搜索" disabled="disabled">
       </a>
     </div>
     <!-- 正在上映 -->

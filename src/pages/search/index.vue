@@ -96,7 +96,14 @@ export default {
 
   .search-title {
     width: 100%;
+    height: 25px;
     font-size: 18px;
+    
+    p {
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .search-mark {

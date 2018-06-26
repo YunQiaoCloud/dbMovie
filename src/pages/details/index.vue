@@ -10,7 +10,7 @@
       </div>
       <div class="movie-genres">
         <div v-for="genre in movieDetails.genres"
-             :key="movieDetails.genres">
+             :key="genre.id">
           {{ genre }}
         </div>
       </div>
