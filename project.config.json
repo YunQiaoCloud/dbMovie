@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "wx57dd0e3db75057e3",
+	"appid": "wx4e22a1ccb0d4edc0",
 	"projectname": "dbmovie",
 	"condition": {
 		"search": {

@@ -2,7 +2,7 @@
   <div class="movie-homepage">
     <div class="movie-search">
       <a href="/pages/search/main">
-        <input type="text" placeholder="搜索">
+        <input type="text" placeholder="搜索" disabled="disabled">
       </a>
     </div>
     <!-- 正在上映 -->
@@ -15,7 +15,7 @@
       <div class="list-box">
         <div class="movie-list" v-for="recentMovie in recentMovies" :key="recentMovie.id">
           <div class="movie-poster">
-            <a href="#">
+            <a :href="'/pages/details/main?id=' + recentMovie.id">
               <img class="poster" :src="recentMovie.images.small">
             </a>
           </div>
@@ -38,7 +38,7 @@
       <div class="list-box">
         <div class="movie-list" v-for="comingMovie in comingMovies" :key="comingMovie.id">
           <div class="movie-poster">
-            <a href="#">
+            <a :href="'/pages/details/main?id=' + comingMovie.id">
               <img class="poster" :src="comingMovie.images.small">
             </a>
           </div>
@@ -61,7 +61,7 @@
       <div class="list-box">
         <div class="movie-list" v-for="top250Movie in top250Movies" :key="top250Movie.id">
           <div class="movie-poster">
-            <a href="#">
+            <a :href="'/pages/details/main?id=' + top250Movie.id">
               <img class="poster" :src="top250Movie.images.small">
             </a>
           </div>
@@ -84,7 +84,7 @@
       <div class="list-box">
         <div class="movie-list" v-for="USMovie in USMovies" :key="USMovie.id">
           <div class="movie-poster">
-            <a href="#">
+            <a :href="'/pages/details/main?id=' + USMovie.id">
               <img class="poster" :src="USMovie.images.small">
             </a>
           </div>
@@ -190,7 +190,7 @@ export default {
     width: 100%;
     height: 150px;
 
-    a {
+    navigator {
       width: 100%;
       height: 100%;
     }
